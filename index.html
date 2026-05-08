@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Do Zero ao Amor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#06070a;
+color:white;
+line-height:1.6;
+overflow-x:hidden;
+}
+
+.container{
+width:100%;
+max-width:1180px;
+margin:0 auto;
+padding:0 24px;
+}
+
+section{
+padding:90px 0;
+position:relative;
+}
+
+.gradient-bg{
+position:absolute;
+width:600px;
+height:600px;
+background:radial-gradient(circle,#1d4ed830 0%,transparent 70%);
+filter:blur(40px);
+z-index:-1;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+background:
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.9)),
+url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?q=80&w=1974&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+text-align:center;
+}
+
+.badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:10px 18px;
+border:1px solid rgba(255,255,255,.1);
+background:rgba(255,255,255,.06);
+border-radius:999px;
+font-size:14px;
+margin-bottom:28px;
+backdrop-filter:blur(12px);
+}
+
+.hero h1{
+font-size:clamp(42px,7vw,82px);
+line-height:1.02;
+font-weight:800;
+margin-bottom:26px;
+letter-spacing:-2px;
+}
+
+.highlight{
+background:linear-gradient(90deg,#60a5fa,#c084fc);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+max-width:820px;
+margin:0 auto 40px;
+font-size:20px;
+color:#d6d6d6;
+}
+
+.cta-group{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:16px;
+margin-top:32px;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:18px 34px;
+border-radius:16px;
+font-weight:700;
+font-size:17px;
+text-decoration:none;
+transition:.3s ease;
+}
+
+.btn-primary{
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+color:white;
+box-shadow:0 10px 30px rgba(37,99,235,.35);
+}
+
+.btn-primary:hover{
+transform:translateY(-3px);
+box-shadow:0 18px 40px rgba(37,99,235,.45);
+}
+
+.btn-secondary{
+border:1px solid rgba(255,255,255,.12);
+background:rgba(255,255,255,.05);
+color:white;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
+margin-top:50px;
+}
+
+.card{
+background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
+border:1px solid rgba(255,255,255,.08);
+padding:32px;
+border-radius:28px;
+backdrop-filter:blur(10px);
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:14px;
+}
+
+.card p{
+color:#b8b8b8;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:clamp(34px,5vw,58px);
+line-height:1.1;
+margin-bottom:18px;
+}
+
+.section-title p{
+max-width:780px;
+margin:0 auto;
+color:#c8c8c8;
+font-size:18px;
+}
+
+.journey{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
+margin-top:30px;
+}
+
+.journey-step{
+padding:32px;
+border-radius:26px;
+background:#0f1117;
+border:1px solid rgba(255,255,255,.06);
+}
+
+.step-number{
+width:52px;
+height:52px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:800;
+margin-bottom:22px;
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+}
+
+.benefits{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:22px;
+}
+
+.benefit{
+padding:28px;
+background:#0b0d12;
+border-radius:22px;
+border:1px solid rgba(255,255,255,.05);
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:24px;
+margin-top:40px;
+}
+
+.testimonial{
+background:linear-gradient(180deg,#10131b,#090b10);
+padding:32px;
+border-radius:26px;
+border:1px solid rgba(255,255,255,.06);
+}
+
+.quote{
+font-size:18px;
+color:#d4d4d4;
+margin-bottom:22px;
+}
+
+.author{
+font-weight:700;
+}
+
+.pricing-box{
+max-width:760px;
+margin:0 auto;
+padding:48px;
+background:linear-gradient(180deg,#10131b,#090b10);
+border-radius:34px;
+text-align:center;
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+.old-price{
+text-decoration:line-through;
+color:#9ca3af;
+font-size:24px;
+}
+
+.new-price{
+font-size:clamp(54px,7vw,86px);
+font-weight:800;
+line-height:1;
+margin:18px 0;
+}
+
+.installments{
+font-size:20px;
+color:#d7d7d7;
+margin-bottom:30px;
+}
+
+.guarantee{
+margin-top:28px;
+color:#bcbcbc;
+font-size:15px;
+}
+
+.profile{
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
+max-width:700px;
+margin:0 auto;
+}
+
+.profile img{
+width:170px;
+height:170px;
+object-fit:cover;
+border-radius:50%;
+margin-bottom:28px;
+border:4px solid rgba(255,255,255,.08);
+box-shadow:0 15px 40px rgba(0,0,0,.45);
+}
+
+footer{
+padding:50px 20px;
+text-align:center;
+color:#9ca3af;
+border-top:1px solid rgba(255,255,255,.05);
+}
+
+@media(max-width:768px){
+section{
+padding:70px 0;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.btn{
+width:100%;
+}
+
+.pricing-box{
+padding:36px 24px;
+}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div class="container">
+<div class="badge">
+✝️ Formação espiritual católica para iniciantes
+</div>
+
+<h1>
+Saia do vazio espiritual e aprenda a viver uma vida real com Deus através do <span class="highlight">Do Zero ao Amor</span>
+</h1>
+
+<p>
+Um caminho gradual e possível para quem deseja viver a fé católica com constância, entendimento e amor verdadeiro por Deus — sem pressão, sem culpa e respeitando sua realidade.
+</p>
+
+<div class="cta-group">
+<a href="https://SEU-CHECKOUT-HOTMART" class="btn btn-primary">
+QUERO COMEÇAR AGORA
+</a>
+
+<a href="#conteudo" class="btn btn-secondary">
+Ver conteúdo
+</a>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="section-title">
+<h2>Você sente que quer se aproximar de Deus… mas não sabe por onde começar?</h2>
+<p>
+Muitas pessoas desejam ter uma vida espiritual mais profunda, mas vivem presas à confusão, culpa, desânimo e falta de direção.
+</p>
+</div>
+
+<div class="cards">
+<div class="card">
+<h3>Rotina espiritual inexistente</h3>
+<p>
+Você tenta rezar, começa animado, mas para poucos dias depois.
+</p>
+</div>
+
+<div class="card">
+<h3>Falta de clareza</h3>
+<p>
+Existe vontade de viver a fé, mas sem saber o que fazer na prática.
+</p>
+</div>
+
+<div class="card">
+<h3>Distância de Deus</h3>
+<p>
+Mesmo acreditando, você sente que sua vida espiritual está fria.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="conteudo">
+<div class="container">
+<div class="section-title">
+<h2>O que é o Do Zero ao Amor?</h2>
+<p>
+Uma formação espiritual prática e progressiva baseada na tradição católica, criada para ajudar pessoas comuns a desenvolverem uma vida espiritual verdadeira.
+</p>
+</div>
+
+<div class="journey">
+<div class="journey-step">
+<div class="step-number">1</div>
+<h3>As bases da fé</h3>
+<p>
+Aprenda os fundamentos essenciais para criar uma vida espiritual sólida.
+</p>
+</div>
+
+<div class="journey-step">
+<div class="step-number">2</div>
+<h3>Vida de oração</h3>
+<p>
+Descubra como criar constância na oração sem transformar isso em peso.
+</p>
+</div>
+
+<div class="journey-step">
+<div class="step-number">3</div>
+<h3>Combate espiritual</h3>
+<p>
+Entenda distrações, desânimo, pecado e como continuar mesmo caindo.
+</p>
+</div>
+
+<div class="journey-step">
+<div class="step-number">4</div>
+<h3>Amor verdadeiro por Deus</h3>
+<p>
+Vá além da obrigação e desenvolva intimidade real com Deus.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="section-title">
+<h2>O que você vai desenvolver</h2>
+</div>
+
+<div class="benefits">
+<div class="benefit">
+<h3>✔ Constância espiritual</h3>
+<p>
+Você finalmente terá direção clara para viver sua fé no dia a dia.
+</p>
+</div>
+
+<div class="benefit">
+<h3>✔ Clareza sobre a vida espiritual</h3>
+<p>
+Entenda o caminho espiritual sem confusão e sem excesso de informações.
+</p>
+</div>
+
+<div class="benefit">
+<h3>✔ Disciplina possível</h3>
+<p>
+Sem metas irreais. Um caminho sustentável para pessoas reais.
+</p>
+</div>
+
+<div class="benefit">
+<h3>✔ Aproximação verdadeira de Deus</h3>
+<p>
+Mais do que conhecimento: uma transformação interior concreta.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="section-title">
+<h2>Depoimentos</h2>
+<p>
+Resultados reais de pessoas que começaram do absoluto zero.
+</p>
+</div>
+
+<div class="testimonial-grid">
+<div class="testimonial">
+<div class="quote">
+“Eu sempre começava e desistia. Pela primeira vez sinto que estou conseguindo criar constância.”
+</div>
+<div class="author">— Aluno do curso</div>
+</div>
+
+<div class="testimonial">
+<div class="quote">
+“Esse curso me mostrou que viver a fé não precisa ser algo impossível ou pesado.”
+</div>
+<div class="author">— Aluna do curso</div>
+</div>
+
+<div class="testimonial">
+<div class="quote">
+“Hoje consigo rezar com mais profundidade e entender melhor minha caminhada espiritual.”
+</div>
+<div class="author">— Aluno do curso</div>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="profile">
+<img src="SUA-FOTO-AQUI.png" alt="Criador do curso">
+
+<h2 style="font-size:48px;margin-bottom:18px;">
+Quem vai te guiar nessa caminhada
+</h2>
+
+<p style="font-size:19px;color:#cfcfcf;max-width:700px;">
+Meu objetivo com o Do Zero ao Amor é tornar a vida espiritual acessível para pessoas comuns que desejam verdadeiramente amar a Deus, mas se sentem perdidas, desanimadas ou sem direção.
+</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="pricing-box">
+<div class="old-price">De R$ 497</div>
+
+<div class="new-price">
+R$ 297
+</div>
+
+<div class="installments">
+Ou em até 10x no cartão
+</div>
+
+<a href="https://SEU-CHECKOUT-HOTMART" class="btn btn-primary" style="width:100%;max-width:500px;">
+QUERO ENTRAR AGORA
+</a>
+
+<div class="guarantee">
+Garantia de 7 dias • Acesso imediato • Compra 100% segura
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 — Do Zero ao Amor. Todos os direitos reservados.
+</footer>
+
+</body>
+</html>
